@@ -2,7 +2,7 @@
 
 一个基于 Cobra 框架的 Golang 常用工具集合，提供字符串处理、文件操作、Base64编码解码等实用功能。
 
-## 功能特性
+## 可用命令
 
 ### 字符串处理 (string)
 - `reverse` - 反转字符串
@@ -10,82 +10,35 @@
 - `lower` - 转换为小写  
 - `trim` - 去除首尾空白字符
 
+**详细文档**: [字符串处理命令](docs/string.md)
+
 ### 文件操作 (file)
 - `info` - 显示文件信息
 - `exists` - 检查文件是否存在
 - `size` - 显示文件或目录大小
 
+**详细文档**: [文件操作命令](docs/file.md)
+
 ### Base64编码 (base64)
 - `encode` - 将数据编码为base64格式
 - `decode` - 将base64数据解码为原始格式
 
+**详细文档**: [Base64编码解码命令](docs/base64.md)
 
+## 快速开始
 
-## 安装
-
-### 从源码编译
 ```bash
-git clone <your-repo>
-cd toolbox
-make build
-```
-
-### 直接安装到 GOPATH
-```bash
-make install
-```
-
-## 使用示例
-
-### 字符串处理
-```bash
-# 反转字符串
+# 字符串处理
 ./toolbox string reverse "hello world"
-# 输出: dlrow olleh
+./toolbox string upper "hello world"
 
-# 转换为大写
-./toolbox string upper "hello world"  
-# 输出: HELLO WORLD
-
-# 转换为小写
-./toolbox string lower "HELLO WORLD"
-# 输出: hello world
-
-# 去除空白字符
-./toolbox string trim "  hello world  "
-# 输出: hello world
-```
-
-### 文件操作
-```bash
-# 查看文件信息
+# 文件操作
 ./toolbox file info go.mod
-
-# 检查文件是否存在
 ./toolbox file exists myfile.txt
 
-# 查看文件大小
-./toolbox file size go.mod
-```
-
-### Base64编码解码
-```bash
-# 编码字符串
+# Base64编码解码
 echo "Hello World" | ./toolbox base64 encode
-# 输出: SGVsbG8gV29ybGQK
-
-# 解码字符串
 echo "SGVsbG8gV29ybGQK" | ./toolbox base64 decode
-# 输出: Hello World
-
-# 编码文件
-./toolbox base64 encode myfile.txt
-
-# 解码文件
-./toolbox base64 decode encoded.txt
-
-# 使用URL安全编码
-echo "Hello+World/Test=" | ./toolbox base64 encode --url
 ```
 
 ## 项目结构
@@ -101,6 +54,10 @@ toolbox/
 │   ├── string.go  # 字符串工具
 │   ├── file.go    # 文件工具
 │   └── base64.go  # Base64工具
+├── docs/          # 详细文档
+│   ├── string.md  # 字符串处理文档
+│   ├── file.md    # 文件操作文档
+│   └── base64.md  # Base64文档
 ├── main.go        # 程序入口
 ├── go.mod         # Go 模块定义
 ├── Makefile       # 构建脚本
