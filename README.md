@@ -88,31 +88,6 @@ echo "SGVsbG8gV29ybGQK" | ./toolbox base64 decode
 echo "Hello+World/Test=" | ./toolbox base64 encode --url
 ```
 
-
-
-## 构建
-
-项目提供了 Makefile 来简化构建过程：
-
-```bash
-# 构建项目
-make build
-
-# 运行测试
-make test
-
-# 清理构建文件
-make clean
-
-# 安装到 GOPATH/bin
-make install
-
-# 交叉编译
-make build-linux    # Linux 平台
-make build-windows  # Windows 平台
-make build-all      # 所有平台
-```
-
 ## 项目结构
 
 ```
