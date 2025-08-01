@@ -1,13 +1,14 @@
 # Go parameters
+VERSION=0.0.2
 GOCMD=go
 GOBUILD=$(GOCMD) build
 GOCLEAN=$(GOCMD) clean
 GOTEST=$(GOCMD) test
 GOGET=$(GOCMD) get
 GOMOD=$(GOCMD) mod
-BINARY_NAME=toolbox
-BINARY_UNIX=$(BINARY_NAME)_unix
-BINARY_WINDOWS=$(BINARY_NAME).exe
+BINARY_NAME=toolbox-$(VERSION)-darwin
+BINARY_UNIX=$(BINARY_NAME)-$(VERSION)-linux
+BINARY_WINDOWS=$(BINARY_NAME)-$(VERSION)-windows.exe
 
 all: test build
 
