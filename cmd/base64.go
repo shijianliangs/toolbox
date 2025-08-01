@@ -6,7 +6,7 @@ package cmd
 import (
 	"encoding/base64"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"os"
 
 	"github.com/spf13/cobra"
@@ -33,10 +33,10 @@ var encodeCmd = &cobra.Command{
 
 		if len(args) == 0 {
 			// 从标准输入读取
-			data, err = ioutil.ReadAll(os.Stdin)
+			data, err = io.ReadAll(os.Stdin)
 		} else {
 			// 从文件读取
-			data, err = ioutil.ReadFile(args[0])
+			data, err = os.ReadFile(args[0])
 		}
 
 		if err != nil {
@@ -70,10 +70,10 @@ var decodeCmd = &cobra.Command{
 
 		if len(args) == 0 {
 			// 从标准输入读取
-			data, err = ioutil.ReadAll(os.Stdin)
+			data, err = io.ReadAll(os.Stdin)
 		} else {
 			// 从文件读取
-			data, err = ioutil.ReadFile(args[0])
+			data, err = os.ReadFile(args[0])
 		}
 
 		if err != nil {

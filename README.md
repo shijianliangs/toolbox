@@ -9,6 +9,7 @@
 | [string](docs/string.md) | 字符串处理工具，支持反转、大小写转换、去除空白等操作 |
 | [file](docs/file.md) | 文件操作工具，支持查看文件信息、检查存在性、计算大小等 |
 | [base64](docs/base64.md) | Base64编码解码工具，支持标准编码和URL安全编码 |
+| [url](docs/url.md) | URL编码解码工具，支持URL参数编码和解码 |
 
 ## 快速开始
 
@@ -24,6 +25,10 @@
 # Base64编码解码
 echo "Hello World" | ./toolbox base64 encode
 echo "SGVsbG8gV29ybGQK" | ./toolbox base64 decode
+
+# URL编码解码
+./toolbox url encode "Hello World"
+./toolbox url decode "Hello%20World"
 ```
 
 ## 项目结构
@@ -34,15 +39,18 @@ toolbox/
 │   ├── root.go    # 根命令
 │   ├── string.go  # 字符串处理命令
 │   ├── file.go    # 文件操作命令
-│   └── base64.go  # Base64编码解码命令
+│   ├── base64.go  # Base64编码解码命令
+│   └── url.go     # URL编码解码命令
 ├── pkg/utils/     # 工具函数包
 │   ├── string.go  # 字符串工具
 │   ├── file.go    # 文件工具
-│   └── base64.go  # Base64工具
+│   ├── base64.go  # Base64工具
+│   └── url.go     # URL工具
 ├── docs/          # 详细文档
 │   ├── string.md  # 字符串处理文档
 │   ├── file.md    # 文件操作文档
-│   └── base64.md  # Base64文档
+│   ├── base64.md  # Base64文档
+│   └── url.md     # URL文档
 ├── main.go        # 程序入口
 ├── go.mod         # Go 模块定义
 ├── Makefile       # 构建脚本
