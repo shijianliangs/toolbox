@@ -14,7 +14,6 @@ jobs:
     strategy:
       matrix:
         goos: [linux, windows, darwin]
-        goarch: [amd64, arm64]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -31,8 +30,8 @@ jobs:
       - name: Build binaries
         run: |
           mkdir -p build
-          BIN_NAME="toolbox-${TAG_NAME}-${{ matrix.goos }}-${{ matrix.goarch }}"
-          GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} go build -o build/${BIN_NAME}
+          BIN_NAME="toolbox-${TAG_NAME}-${{ matrix.goos }}"
+          GOOS=${{ matrix.goos }} go build -o build/${BIN_NAME}
 
       - name: Upload Release Assets
         uses: softprops/action-gh-release@v1
